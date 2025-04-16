@@ -1,19 +1,20 @@
 package com.kh.banana.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.kh.banana.dto.UserDTO;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,6 +35,9 @@ public class UserEntity {
 	private String userNick;
 	private String userProfile;
 	private String userAbout;
+	
+	@OneToMany(mappedBy = "writer", cascade = CascadeType.ALL)
+    private List<PostEntity> posts = new ArrayList<>();
 	
 	public static UserEntity from(UserDTO dto) {
 		UserEntity dao = new UserEntity();

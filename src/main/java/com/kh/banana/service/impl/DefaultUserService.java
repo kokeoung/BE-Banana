@@ -21,7 +21,7 @@ public class DefaultUserService implements UserService{
 	private final UserRepository repo;
 	
 	@Override
-	public ResponseEntity<?> save(UserDTO dto) {
+	public ResponseEntity<?> userSave(UserDTO dto) {
 		UserEntity dao = UserEntity.from(dto);
 		System.out.println(dao);
 		repo.save(dao);

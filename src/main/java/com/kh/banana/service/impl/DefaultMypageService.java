@@ -1,0 +1,27 @@
+package com.kh.banana.service.impl;
+
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.kh.banana.entity.UserEntity;
+import com.kh.banana.repository.UserRepository;
+import com.kh.banana.service.MypageService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class DefaultMypageService implements MypageService{
+	
+	private final UserRepository repo;
+
+	@Override
+	public ResponseEntity<?> findUser(String userId) {
+		Optional<UserEntity> dao = repo.findByUserId(userId);
+		System.out.println("성공.");
+		return ResponseEntity.ok(dao);
+	}
+
+}

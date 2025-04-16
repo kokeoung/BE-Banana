@@ -8,7 +8,7 @@ import com.kh.banana.dto.UserDTO;
 
 public interface UserService {
 
-	ResponseEntity<?> save(UserDTO dto);
+	ResponseEntity<?> userSave(UserDTO dto);
 
 	boolean idCheck(IdCheckDTO dto);
 

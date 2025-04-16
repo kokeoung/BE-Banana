@@ -19,8 +19,8 @@ public class AuthController {
 	private final UserService service;
 	
 	@PostMapping("/api/auth")
-	public ResponseEntity<?> save(@RequestBody UserDTO dto) {//Jackson	 
-		return service.save(dto);
+	public ResponseEntity<?> userSave(@RequestBody UserDTO dto) {//Jackson	 
+		return service.userSave(dto);
 	}
 	@PostMapping("/api/check-id")
 	public ResponseEntity<?> idCheck(@RequestBody IdCheckDTO dto) { 
