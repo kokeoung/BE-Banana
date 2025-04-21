@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface MypageService {
 
-	ResponseEntity<?> findUser(String userId);
+	ResponseEntity<?> findUser(String userAccount);
 
 }

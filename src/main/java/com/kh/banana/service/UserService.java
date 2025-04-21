@@ -1,17 +1,17 @@
 package com.kh.banana.service;
 
+import com.kh.banana.dto.request.AccountCheckDTO;
+import com.kh.banana.dto.request.UserLoginRequestDTO;
+import com.kh.banana.dto.request.UserSignupRequestDTO;
+import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.http.ResponseEntity;
-
-import com.kh.banana.dto.IdCheckDTO;
-import com.kh.banana.dto.LoginCheckDTO;
-import com.kh.banana.dto.UserDTO;
 
 public interface UserService {
 
-	ResponseEntity<?> userSave(UserDTO dto);
+	ResponseEntity<?> userSave(UserSignupRequestDTO dto);
 
-	boolean idCheck(IdCheckDTO dto);
+	boolean idCheck(AccountCheckDTO dto);
 
-	ResponseEntity<?> loginCheck(LoginCheckDTO dto);
-	
+	ResponseEntity<?> loginCheck(UserLoginRequestDTO dto);
+
 }
