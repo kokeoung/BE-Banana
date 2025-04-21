@@ -23,4 +23,10 @@ public class DefaultMypageService implements MypageService{
 		System.out.println("성공.");
 		return ResponseEntity.ok(dao);
 	}
+
+	@Override
+	public ResponseEntity<?> updateUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

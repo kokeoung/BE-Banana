@@ -3,6 +3,7 @@ package com.kh.banana.dto.request;
 import com.kh.banana.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Getter

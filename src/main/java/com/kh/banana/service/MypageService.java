@@ -6,4 +6,6 @@ public interface MypageService {
 
 	ResponseEntity<?> findUser(String userAccount);
 
+	ResponseEntity<?> updateUser();
+
 }
