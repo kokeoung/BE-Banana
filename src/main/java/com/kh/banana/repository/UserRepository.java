@@ -8,10 +8,10 @@ import com.kh.banana.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-	boolean existsByUserId(String userId);
+	boolean existsByUserAccount(String userAccount);
 
-	boolean existsByUserIdAndUserPass(String userId,String userPass);
+	boolean existsByUserAccountAndUserPass(String userAccount,String userPass);
 
-	Optional<UserEntity> findByUserId(String userId);
+	Optional<UserEntity> findByUserAccount(String userAccount);
 	
 }
