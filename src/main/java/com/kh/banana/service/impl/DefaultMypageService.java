@@ -18,8 +18,8 @@ public class DefaultMypageService implements MypageService{
 	private final UserRepository repo;
 
 	@Override
-	public ResponseEntity<?> findUser(String userAccount) {
-		Optional<UserEntity> dao = repo.findByUserAccount(userAccount);
+	public ResponseEntity<?> findUser(String userId) {
+		Optional<UserEntity> dao = repo.findByUserId(userId);
 		System.out.println("성공.");
 		return ResponseEntity.ok(dao);
 	}

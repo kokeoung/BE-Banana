@@ -23,10 +23,10 @@ public class MyController {
 	public ResponseEntity<?> findUser(@PathVariable(value = "userId")String userId) {
 		return service.findUser(userId);
 	}
-	@PostMapping("/api/my/change/{userId}")
-	public ResponseEntity<?> updateUser(
-			
-		    @RequestParam(required = false) MultipartFile userProfile) {
-		return service.updateUser();
-	}
+//	@PostMapping("/api/my/change/{userId}")
+//	public ResponseEntity<?> updateUser(
+//
+//		    @RequestParam(required = false) MultipartFile userProfile) {
+//		return service.updateUser();
+//	}
 }

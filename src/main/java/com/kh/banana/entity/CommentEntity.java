@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name="comment")
 @Entity
 @Getter
-public class CommentEntity {
+public class CommentEntity extends BaseEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,5 +1,6 @@
 package com.kh.banana.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +16,7 @@ import lombok.*;
 @Getter
 @Table(name="post")
 @Entity
-public class PostEntity {
+public class PostEntity extends BaseEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

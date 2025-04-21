@@ -8,10 +8,10 @@ import lombok.Getter;
 @Getter
 public class UserLoginRequestDTO {
 
-    private String userAccount;
+    private String userId;
     private String userPass;
 
     public static UserEntity toEntity(UserLoginRequestDTO dto) {
-        return UserEntity.createUserForLogin(dto.getUserAccount(), dto.getUserPass());
+        return UserEntity.createUserForLogin(dto.getUserId(), dto.getUserPass());
     }
 }
