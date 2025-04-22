@@ -4,10 +4,12 @@ import com.kh.banana.entity.PostEntity;
 import com.kh.banana.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 public class PostRequestDTO {
