@@ -3,8 +3,10 @@ package com.kh.banana.dto.response;
 import com.kh.banana.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class UserFollowResponseDTO {
 

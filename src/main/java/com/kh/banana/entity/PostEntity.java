@@ -12,8 +12,9 @@ import jakarta.persistence.*;
 
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @Table(name="post")
 @Entity
 public class PostEntity extends BaseEntity{
@@ -22,12 +23,13 @@ public class PostEntity extends BaseEntity{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(columnDefinition = "TEXT")
 	private String thumbnail;
 
 	@Column(nullable = false)
 	private String postTitle;
 
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String postContent;
 
 	@ManyToOne(fetch = FetchType.LAZY)
