@@ -11,8 +11,9 @@ import jakarta.persistence.*;
 import jakarta.websocket.Decoder.Text;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @Table(name="post")
 @Entity
 public class PostEntity extends BaseEntity{
@@ -20,6 +21,7 @@ public class PostEntity extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 
 	@Lob
 	@Column(columnDefinition = "LONGTEXT")
