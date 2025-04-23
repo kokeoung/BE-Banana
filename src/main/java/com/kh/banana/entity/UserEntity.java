@@ -7,8 +7,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @Table(name="user")
 @Entity
 public class UserEntity {
@@ -52,5 +53,12 @@ public class UserEntity {
 		userEntity.userPass = userPass;
 		userEntity.userNick = userNick;
 		return userEntity;
+	}
+
+	public UserEntity(String userId, String userPass, String userNick, String userProfileImage) {
+		this.userId = userId;
+		this.userPass = userPass;
+		this.userNick = userNick;
+		this.userProfileImage = userProfileImage;
 	}
 }
