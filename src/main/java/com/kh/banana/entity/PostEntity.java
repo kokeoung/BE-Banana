@@ -1,5 +1,6 @@
 package com.kh.banana.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -7,26 +8,30 @@ import java.util.List;
 import com.kh.banana.dto.response.PostDetailResponseDTO;
 import com.kh.banana.dto.response.PostSimpleResponseDTO;
 import jakarta.persistence.*;
-
-
+import jakarta.websocket.Decoder.Text;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @Table(name="post")
 @Entity
-public class PostEntity {
+public class PostEntity extends BaseEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+
+	@Lob
+	@Column(columnDefinition = "LONGTEXT")
 	private String thumbnail;
 
 	@Column(nullable = false)
 	private String postTitle;
 
-	@Column(nullable = false)
+	@Lob
+	@Column(columnDefinition = "LONGTEXT",nullable = false)
 	private String postContent;
 
 	@ManyToOne(fetch = FetchType.LAZY)

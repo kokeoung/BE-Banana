@@ -1,15 +1,13 @@
 package com.kh.banana.dto.request;
 
-import com.kh.banana.dto.response.CommentResponseDTO;
 import com.kh.banana.entity.CommentEntity;
 import com.kh.banana.entity.PostEntity;
 import com.kh.banana.entity.UserEntity;
 import lombok.*;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class CommentRequestDTO {
 
     // 유저와 게시글은 서비스 계층에서 처리할 예정
