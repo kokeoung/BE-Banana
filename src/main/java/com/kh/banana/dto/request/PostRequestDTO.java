@@ -15,6 +15,7 @@ import java.util.Optional;
 public class PostRequestDTO {
 
     // 게시글 작성, 수정요청 dto
+	private Long user;
     private String postTitle;
     private String postContent;
     private String thumbnail;

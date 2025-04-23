@@ -5,6 +5,7 @@ import java.util.Optional;
 import com.kh.banana.dto.request.AccountCheckDTO;
 import com.kh.banana.dto.request.UserLoginRequestDTO;
 import com.kh.banana.dto.request.UserSignupRequestDTO;
+import com.kh.banana.dto.response.UserLoginResponseDTO;
 import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -42,8 +43,8 @@ public class DefaultUserService implements UserService{
 			System.out.println("로그인 실패");
 			return ResponseEntity.ok("로그인 실패");
 		}
-		Optional<UserEntity> dao = repo.findByUserId(dto.getUserId());
+		UserLoginResponseDTO result = UserLoginResponseDTO.fromEntity(repo.findByUserId(dto.getUserId()));
 		System.out.println("로그인 성공");
-		return ResponseEntity.ok(dao);
+		return ResponseEntity.ok(result);
 	}
 }
