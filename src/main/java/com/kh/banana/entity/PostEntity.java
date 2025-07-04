@@ -1,17 +1,14 @@
 package com.kh.banana.entity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import com.kh.banana.dto.response.PostDetailResponseDTO;
-import com.kh.banana.dto.response.PostSimpleResponseDTO;
+import com.kh.banana.dto.request.PostUpdateRequestDTO;
+
 import jakarta.persistence.*;
-import jakarta.websocket.Decoder.Text;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Table(name="post")
@@ -21,7 +18,6 @@ public class PostEntity extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 
 	@Lob
 	@Column(columnDefinition = "LONGTEXT")
@@ -38,7 +34,7 @@ public class PostEntity extends BaseEntity{
 	@JoinColumn(name = "user_id",nullable = false) // Post 테이블에 생기는 FK 컬럼
 	private UserEntity user; // writerId로 필드명 만들면 gpt가 계속 writer로 만들라고 뭐라함.
 
-	@OneToMany(mappedBy="post")
+	@OneToMany(mappedBy="post", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CommentEntity> comment = new ArrayList<>();
 
 	public static PostEntity createPostEntity(String postTitle, String postContent, String thumbnail, UserEntity user) {
@@ -48,5 +44,10 @@ public class PostEntity extends BaseEntity{
 		postEntity.thumbnail = thumbnail;
 		postEntity.user = user;
 		return postEntity;
+	}
+	public void updatePostData(PostUpdateRequestDTO dto) {
+		this.postTitle = dto.getPostTitle();
+		this.postContent = dto.getPostContent();
+		this.thumbnail = dto.getThumbnail();
 	}
 }

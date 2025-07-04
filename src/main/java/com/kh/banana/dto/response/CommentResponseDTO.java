@@ -15,9 +15,11 @@ import java.util.stream.Collectors;
 public class CommentResponseDTO {
 
     private Long commentId;
+    private Long parent;
     private String content;
     private String userNick;
     private String userProfileImage;
+    private String userId;
     private List<CommentResponseDTO> children = new ArrayList<>();
 
     public static CommentResponseDTO fromEntity(CommentEntity commentEntity) {
@@ -29,9 +31,11 @@ public class CommentResponseDTO {
         // CommentResponseDTO 객체 생성 후 반환
         return new CommentResponseDTO(
                 commentEntity.getId(),
+                commentEntity.getParent() != null ? commentEntity.getParent().getId() : null,
                 commentEntity.getContent(),
                 commentEntity.getUser().getUserNick(),
                 commentEntity.getUser().getUserProfileImage(),
+                commentEntity.getUser().getUserId(),
                 children
         );
     }

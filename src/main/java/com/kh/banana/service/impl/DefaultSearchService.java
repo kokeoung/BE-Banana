@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class DefaultSearchService implements SearchService{
-	
+
 	private final PostRepository postRepository;
 
 	@Override
@@ -23,6 +23,15 @@ public class DefaultSearchService implements SearchService{
 				.map(PostSimpleResponseDTO::fromEntity)
 				.collect(Collectors.toList());
 	}
-	
-	
+
+	@Override
+	public List<PostSimpleResponseDTO> searchPosts(String keyword) {
+
+		return postRepository.searchByKeyword(keyword)
+				.stream()
+				.map(PostSimpleResponseDTO::fromEntity)
+				.collect(Collectors.toList());
+	}
+
+
 }

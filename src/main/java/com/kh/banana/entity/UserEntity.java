@@ -7,9 +7,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
 @Table(name="user")
 @Entity
 public class UserEntity {
@@ -29,16 +28,9 @@ public class UserEntity {
 
 	private String userProfileImage;
 	private String userAbout;
-	
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<PostEntity> postList = new ArrayList<>();
-
-	@OneToMany(mappedBy = "follower", fetch = FetchType.LAZY)
-	private List<FollowEntity> follower = new ArrayList<>();
-
-	@OneToMany(mappedBy = "followed", fetch = FetchType.LAZY)
-	private List<FollowEntity> followed = new ArrayList<>();
-
+	private List<PostEntity> postList = new ArrayList<>();
 
 	public static UserEntity createUserForLogin(String userId, String userPass) {
 		UserEntity userEntity = new UserEntity();
@@ -60,5 +52,15 @@ public class UserEntity {
 		this.userPass = userPass;
 		this.userNick = userNick;
 		this.userProfileImage = userProfileImage;
+	}
+	public void updateUserNickInfo(String userNick) {
+		this.userNick = userNick;
+	}
+	public void updateUserAboutInfo(String userAbout) {
+		this.userAbout = userAbout;
+	}
+
+	public void updateUserProfileo(String imageUrl) {
+		this.userProfileImage = imageUrl;
 	}
 }

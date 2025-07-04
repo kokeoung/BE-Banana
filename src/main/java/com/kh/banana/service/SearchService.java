@@ -6,6 +6,7 @@ import com.kh.banana.dto.response.PostSimpleResponseDTO;
 
 public interface SearchService {
 	List<PostSimpleResponseDTO> getAllPosts();
-	
-	
+
+	List<PostSimpleResponseDTO> searchPosts(String keyword);
+
 }
